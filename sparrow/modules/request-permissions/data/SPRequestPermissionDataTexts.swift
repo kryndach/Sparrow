@@ -27,17 +27,17 @@ extension SPRequestPermissionData {
     
     struct texts {
         static func title() -> String {
-            var deviceName = Bundle.main.object(forInfoDictionaryKey: "CFBundleDisplayName") as? String ?? ""
-            return "\(deviceName) needs a permission"
+            var deviceName = Bundle.main.infoDictionary![kCFBundleNameKey as String] as! String
+            return "\(deviceName)"
         }
         
         static func subtitile() -> String {
-            return "Application needs permission"
+            return "needs permission"
         }
         
         static func advice() -> String {
-            var deviceName = Bundle.main.object(forInfoDictionaryKey: "CFBundleDisplayName") as? String ?? ""
-            return "\(deviceName) requires location permission when running to display events near you!"
+            var deviceName = Bundle.main.infoDictionary![kCFBundleNameKey as String] as! String
+            return "\(deviceName) requires location permission to display events near you!"
         }
         
         static func advice_additional() -> String {
